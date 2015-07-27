@@ -30,6 +30,23 @@ var albumMarconi = {
     ]
 };
 
+//Third album
+var albumJames = {
+    name: 'The Decision',
+    artist: 'Lebron James',
+    label: 'CAVS',
+    year: '2010',
+    albumArtUrl: 'assets/images/album_covers/20.png',
+    songs: [
+        { name: 'Drible, Drible, Drible', length: '4:22' },
+        { name: 'Dolla Bills', length: '3:12' },
+        { name: 'If The Shoes Fits', length: '5:31' },
+        { name: 'Open Gym', length: '2:17' },
+        { name: 'Cleveland, Stand Up', length: '5:37' }
+    ]
+};
+
+
 var createSongRow = function(songNumber, songName, songLength) {
     
     var template =
@@ -43,9 +60,10 @@ var createSongRow = function(songNumber, songName, songLength) {
     return template;
     
 };
-
+//var globalAlbum;
 var setCurrentAlbum = function(album) {
-    
+    //globalAlbum = album;
+    //console.log(album);
     //#1
     var albumTitle = document.getElementsByClassName('album-view-title')[0];
     var albumArtist = document.getElementsByClassName('album-view-artist')[0];
@@ -66,11 +84,27 @@ var setCurrentAlbum = function(album) {
     for (i = 0; i < album.songs.length; i++) {
         albumSongList.innerHTML += createSongRow(i + 1, album.songs[i].name, album.songs[i].length);
     }
+    return album;
     
 };
 
 window.onload = function() {
+    var albumArray = [albumPicasso,albumMarconi,albumJames];
+    var curAlb = setCurrentAlbum(albumPicasso);
     
-    setCurrentAlbum(albumPicasso);
-    
+    document.getElementById('album-cover').addEventListener('click', function(event) {
+        
+        curAlb = setCurrentAlbum(nextItem(albumArray, curAlb)); 
+    });
+
 };
+
+var nextItem = function (array, currentItem) {
+    var currentItemPos = array.indexOf(currentItem);
+    var nextItemPos = currentItemPos + 1;
+    if (currentItemPos === array.length - 1) {
+        nextItemPos = 0;
+    }
+    return array[nextItemPos];
+}
+
