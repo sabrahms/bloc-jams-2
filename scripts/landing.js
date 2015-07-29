@@ -18,7 +18,7 @@ var animatePoints = function (points) {
 window.onload = function() {
     
     if (window.innerHeight > 950) {
-        animatePoints(animatePoints);
+        animatePoints(pointsArray);
     }
     
     window.addEventListener('scroll', function(event) {
