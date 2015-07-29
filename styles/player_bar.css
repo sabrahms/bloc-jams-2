@@ -156,6 +156,36 @@ player-bar a,
     vertical-align: middle;
 }
 
+@media (max-width: 40rem) {
+    .player-bar {
+        height: 200px;
+        padding: 1rem;
+}
+ 
+    .player-bar .left-controls,
+    .player-bar .right-controls,
+    .player-bar .currently-playing {
+        display: block;
+        margin: 0 auto;
+        width: 100%;
+        min-height: 4rem;
+        text-align: center;
+}
+ 
+    .player-bar .right-controls {
+        margin-left: -1rem;
+}
+ 
+    .artist-name,
+    .song-name {
+        display: none;
+}
+ 
+    .player-bar .currently-playing .artist-song-mobile {
+        display: block;
+     }
+ }
+
 .player-bar .currently-playing {
     width: 50%;
     text-align: center;
