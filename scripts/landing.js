@@ -1,31 +1,36 @@
-var pointsArray = document.getElementsByClassName('point');
-
-var animatePoints = function (points) {
+//#4
+var animatePoints = function() {
                 
                 
-    var revealPoint = function (i) {
-        points[i].style.opacity = 1;
-        points[i].style.transform = "scaleX(1) translateY(0)";
-        points[i].style.msTransform = "scaleX(1) translateY(0)";
-        points[i].style.WebkitTransform = "scaleX(1) translateY(0)";
-    }                
+    var revealPoint = function() {
+        // #6
+        $(this).css({
+            opacity: 1,
+            transform: 'scaleX(1) translateY(0)'
+        });
+    };
     
-    for (var i = 0; i < points.length; i++) {
-        revealPoint(i);
-    }
+    // #5
+    $.each($('.point'), revealPoint);
+
 };
 
-window.onload = function() {
+$(window).load(function() {
     
-    if (window.innerHeight > 950) {
-        animatePoints(pointsArray);
+    // #1
+    if ($(window).height() > 950) {
+        animatePoints();
     }
     
-    window.addEventListener('scroll', function(event) {
-        if (pointsArray[0].getBoundingClientRect().top <= 500) {
-            animatePoints(pointsArray);
+    // #2
+    $(window).scroll(function(event) {
+        
+    // #3
+        if ($(window).scrollTop() >= 500) {
+            animatePoints();
+        
         }
         
     });
     
-}
+});
