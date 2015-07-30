@@ -184,12 +184,22 @@ player-bar a,
     .player-bar .currently-playing .artist-song-mobile {
         display: block;
     }
-}
-    
 
-    
-    
-    
+ 
+    .player-bar .right-controls {
+        margin-left: -1rem;
+}
+ 
+    .artist-name,
+    .song-name {
+        display: none;
+}
+ 
+    .player-bar .currently-playing .artist-song-mobile {
+        display: block;
+     }
+ }
+
 
 .player-bar .currently-playing {
     width: 50%;
