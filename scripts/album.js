@@ -74,13 +74,13 @@ var setCurrentAlbum = function(album) {
     
     // Select elements that we want to populate with text dynamically    
     var $albumTitle = $('.album-view-title');
-    var $albumArtist = $('album-view-artist');
+    var $albumArtist = $('.album-view-artist');
     var $albumReleaseInfo = $('.album-view-release-info');
-    var $albumImage = $('album-cover-art');
-    var $albumSongList = $('album-view-song-list');
+    var $albumImage = $('.album-cover-art');
+    var $albumSongList = $('.album-view-song-list');
     
     // Assign values to each part of the album (text, images)
-    $albumTitle.text(album-name);
+    $albumTitle.text(album.name);
     $albumArtist.text(album.artist);
     $albumReleaseInfo.text(album.year + ' ' + album.label);
     $albumImage.attr('src',album.albumArtUrl);
