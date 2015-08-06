@@ -29,7 +29,7 @@ player-bar a,
 }
 
 .player-bar .left-controls {
-    width: 25;
+    width: 25%;
     text-align: left;
     padding-right: 1rem;
 }
@@ -117,18 +117,19 @@ player-bar a,
 
 .seek-bar .thumb {
     position: absolute;
-    height: 0.25rem;
-    width: 0.25rem;
+    height: 0.5rem;
+    width: 0.5rem;
     background: white;
     left: 50%;
-    right: 50%;
     margin-left: -0.25rem;
+    top: 50%;
     margin-top: -0.25rem;
     border-radius: 50%;
     cursor: pointer;
-    -webkit-transition: all 100ms ease-in-out;
-    -moz-transition: all 100ms ease-in-out;
-    transition: all 100ms ease-in-out;
+    transition: width 100ms ease-in-out,
+                height 100ms ease-in-out,
+                margin-top 100ms ease-in-out,
+                margin-left 100ms ease-in-out;
 }
 
 .seek-bar:hover .thumb {
