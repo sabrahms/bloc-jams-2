@@ -110,11 +110,12 @@ var updateSeekBarWhileSongPlays = function() {
     
     if(currentSoundFile) {
         currentSoundFile.bind('timeupdate', function(event) {
-            
             var seekBarFillRatio = this.getTime() / this.getDuration();
             var $seekBar = $('.seek-control .seek-bar');
             
             updateSeekPercentage($seekBar, seekBarFillRatio);
+            setCurrentTimeInPlayerBar(this.getTime());
+            setTotalTimeInPlayerBar(this.getDuration());
         });
     }
     
@@ -143,7 +144,6 @@ var setupSeekBars = function() {
         
         var offsetX = event.pageX - $(this).offset().left;
         var barWidth = $(this).width();
-        
         var seekBarFillRatio = offsetX / barWidth;
         
         if ($(this).parent().attr('class') == 'seek-control') {
@@ -289,6 +289,25 @@ var getSongNumberCell= function(number) {
     return songCell;
 }; 
 
+
+var setCurrentTimeInPlayerBar = function (currentTime) {
+    $('.current-time').text(filterTimeCode(currentTime));
+};
+
+var setTotalTimeInPlayerBar = function (totalTime) {
+    $('.total-time').text(filterTimeCode(totalTime));
+};
+
+var filterTimeCode = function (timeInSeconds) {
+    var time = parseFloat(timeInSeconds);
+    
+    var minutes = Math.floor(time / 60);
+    var seconds = Math.floor(time - minutes * 60);
+    
+    if (seconds < 10) {seconds = "0" + seconds;}
+    var time = minutes + ':' + seconds;
+    return time;
+};
 
 
 
