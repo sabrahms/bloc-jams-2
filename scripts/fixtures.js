@@ -4,7 +4,7 @@ var albumPicasso = {
     artist: 'Pablo Picasso',
     label: 'Cubism',
     year: '1881',
-    albumArtUrl: '/assets/images/album_covers/01.png',
+    albumArtUrl: '/assets/images/album_covers/06.png',
     songs: [
         { name: 'Blue', length: '4:26', audioUrl: '/assets/music/blue' },
         { name: 'Green', length: '3:14', audioUrl: '/assets/music/green' },
